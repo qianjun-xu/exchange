@@ -9,18 +9,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity_denglu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register">
+        <activity android:name=".MainActivity_zuce">
         </activity>
-        <activity android:name=".MainActivity2">
+        <activity android:name=".MainActivity_fabushangping">
         </activity>
-        <activity android:name=".SecondActivity">
-    </activity>
+        <activity android:name=".MainAcitvity_zhuyemian">
+        </activity>
+        <activity android:name=".MainActivity_gerenzhongx">
+        </activity>
+        <activity android:name=".MainActivity_xiugaimima">
+        </activity>
+        <activity android:name=".MainActivity_gerenxinxi">
+        </activity>
+        <activity android:name=".MainActivity_wodefabu">
+        </activity>
+        <activity android:name=".Main_chakan">
+        </activity>
+
 </application>
 
 </manifest>

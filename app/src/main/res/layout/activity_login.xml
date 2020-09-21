@@ -6,17 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity_denglu">
  <RelativeLayout
      android:layout_width="match_parent"
      android:layout_height="wrap_content"
      android:layout_weight="1"
      android:layout_marginTop="48dp">
+
      <ImageView
-         android:layout_width="108dp"
-         android:layout_height="108dp"
-         android:src="@drawable/ic_baseline_group_add_24"
-         android:layout_centerInParent="true"/>
+         android:layout_width="141dp"
+         android:layout_height="153dp"
+         android:layout_centerInParent="true"
+         android:src="@drawable/imp_456" />
 
  </RelativeLayout>
 

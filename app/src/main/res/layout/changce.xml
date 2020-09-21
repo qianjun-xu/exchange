@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="旧密码" />
+        <EditText
+            android:id="@+id/userpassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:hint="请输入旧密码"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="48dp"
+            android:maxLines="1"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="新密码" />
+        <EditText
+            android:id="@+id/userpassword1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="1dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:hint="请输入新密码"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="48dp"
+            android:maxLines="1"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="6dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:text="确认密码"
+            />
+        <EditText
+            android:id="@+id/userpassword2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="center"
+            android:inputType="text"
+            android:layout_marginStart="80dp"
+            android:layout_marginEnd="48dp"
+            android:maxLines="1"
+            android:hint="请再次确认你的密码"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/ir_Button"
+        android:layout_width="150dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@color/cardview_light_background"
+        android:text="保存"
+        android:textSize="25sp">
+
+    </Button>
+
+</LinearLayout>

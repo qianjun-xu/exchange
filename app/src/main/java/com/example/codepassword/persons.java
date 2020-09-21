@@ -5,14 +5,20 @@ public class persons {
     private String money;
     private String photo;
     private String time;
-
-    public persons(String name, String money, String photo, String time) {
+    private String num;
+    public persons(String name, String money, String photo, String time,String num) {
         this.name=name;
         this.money=money;
         this.photo=photo;
         this.time=time;
+        this.num=num;
     }
-
+    public String getNum(){
+        return num;
+    }
+    public void setNum(String num){
+        this.num=num;
+    }
     public String getName(){
         return name;
     }

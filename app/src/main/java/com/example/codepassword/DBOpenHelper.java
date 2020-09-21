@@ -33,7 +33,10 @@ public class DBOpenHelper extends SQLiteOpenHelper {
         db.execSQL("DELETE FROM user WHERE name = AND password ="+name+password);
     }
     public void updata(String password){
-        db.execSQL("UPDATE user SET password =?",new Object[]{password});
+        db.execSQL("UPDATE user SET password = ?",new Object[]{password});
+    }
+    public void upname(String name){
+        db.execSQL("UPDATE user SET name = ?",new Object[]{name});
     }
     public ArrayList<User> getAllData(){
 

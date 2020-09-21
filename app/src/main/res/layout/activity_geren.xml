@@ -2,28 +2,31 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#E7FFF8"
+    >
 
-    <View
+    <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginStart="150dp"
+        android:layout_marginStart="155dp"
         android:layout_marginTop="50dp"
-        android:src=" " />
+       />
 
     <TextView
         android:id="@+id/userid"
         android:layout_width="200dp"
         android:layout_height="30dp"
-        android:layout_marginStart="96dp"
+        android:layout_marginStart="110dp"
         android:layout_marginTop="160dp"
         android:gravity="center" />
 
-    <View
+    <ImageView
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="210dp" />
+        android:layout_marginTop="210dp"
+        android:src="@drawable/img_020"/>
     <Button
         android:id="@+id/getid"
         android:layout_width="280dp"
@@ -31,12 +34,14 @@
         android:text="个人信息"
         android:textSize="25sp"
         android:layout_marginTop="210dp"
-        android:layout_marginStart="100dp"/>
-    <View
+        android:layout_marginStart="100dp"
+        />
+    <ImageView
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="285dp" />
+        android:layout_marginTop="285dp"
+        android:src="@drawable/imag_21"/>
     <Button
         android:id="@+id/getfabu"
         android:layout_width="280dp"
@@ -45,11 +50,12 @@
         android:textSize="25sp"
         android:layout_marginStart="100dp"
         android:text="我的发布"/>
-    <View
+    <ImageView
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="360dp" />
+        android:layout_marginTop="360dp"
+        android:src="@drawable/imge_22"/>
     <Button
         android:id="@+id/getxiugai"
         android:layout_width="280dp"
@@ -58,11 +64,12 @@
         android:layout_marginStart="100dp"
         android:textSize="25sp"
         android:text="修改密码"/>
-    <View
+    <ImageView
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_marginStart="15dp"
-        android:layout_marginTop="435dp" />
+        android:layout_marginTop="435dp"
+        android:src="@drawable/image_23"/>
     <Button
         android:id="@+id/gettui"
         android:layout_width="280dp"
@@ -73,13 +80,13 @@
         android:text="退出登录"/>
 
     <Button
-        android:id="@+id/geifan"
+        android:id="@+id/getfan"
         android:layout_width="150dp"
         android:layout_height="65dp"
-        android:layout_marginTop="520dp"
-        android:text="返回"
-        android:textSize="30sp"
         android:layout_marginStart="150dp"
-        android:background="@color/colorAccent"/>
-         />
+        android:layout_marginTop="550dp"
+        android:background="@color/colorAccent"
+        android:text="返回"
+        android:textSize="30sp" />
+    />
 </RelativeLayout>

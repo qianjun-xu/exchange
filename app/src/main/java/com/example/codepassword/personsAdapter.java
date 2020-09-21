@@ -1,6 +1,7 @@
 package com.example.codepassword;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,10 +27,12 @@ public class personsAdapter extends ArrayAdapter<persons>
         TextView money=view.findViewById(R.id.sp_name2);
         TextView photo=view.findViewById(R.id.sp_name3);
         TextView time=view.findViewById(R.id.sp_name4);
+        TextView num=view.findViewById(R.id.sp_name5);
         name.setText(persons.getName());
         money.setText(persons.getMoney());
         photo.setText(persons.getPhoto());
         time.setText(persons.getTime());
+        num.setText(persons.getNum());
         return view;
     }
 }

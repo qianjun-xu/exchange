@@ -1,13 +1,11 @@
 package com.example.codepassword;
 
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.text.InputType;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -16,14 +14,13 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity_denglu extends AppCompatActivity {
     private Boolean bPwdSwitch=false;
     private DBOpenHelper mDBOpenHelper;
     private EditText etPwd;
@@ -55,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
 sign.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View view) {
-        Intent intent1=new Intent(MainActivity.this,Register.class);//跳转页面
+        Intent intent1=new Intent(MainActivity_denglu.this, MainActivity_zuce.class);//跳转页面
         startActivity(intent1);
     }
 });//注册点击事件
@@ -88,15 +85,17 @@ sign.setOnClickListener(new View.OnClickListener() {
                         }
                         editor.commit();
 
-                        Toast.makeText(MainActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                        Toast.makeText(MainActivity_denglu.this, "登录成功", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(MainActivity_denglu.this, MainAcitvity_zhuyemian.class);
+                        intent.putExtra("name",name);
+                        intent.putExtra("password",password);
                         startActivity(intent);
-                        finish();//销毁此Activity
+                       //销毁此Activity
                     } else {
-                        Toast.makeText(MainActivity.this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity_denglu.this, "用户名或密码不正确，请重新输入", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(MainActivity.this, "请输入你的用户名或密码", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity_denglu.this, "请输入你的用户名或密码", Toast.LENGTH_SHORT).show();
                 }
 
             }

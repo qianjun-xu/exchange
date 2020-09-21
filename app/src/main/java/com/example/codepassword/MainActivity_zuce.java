@@ -11,7 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Register extends AppCompatActivity implements View.OnClickListener{
+import java.util.ArrayList;
+
+public class MainActivity_zuce extends AppCompatActivity implements View.OnClickListener{
     private  DBOpenHelper mDBOpenHelper;
     private  Button mregister;
     private EditText musername;
@@ -34,9 +36,6 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
         musername=findViewById(R.id.ir_account);
         mpassword=findViewById(R.id.ir_password);
         mpassword1=findViewById(R.id.ir_repassword);
-        //mphoto=findViewById(R.id.ir_photo);
-        //mloca=findViewById(R.id.ir_location);
-
         mregister.setOnClickListener(this);
     }
 
@@ -47,23 +46,29 @@ public class Register extends AppCompatActivity implements View.OnClickListener{
                 String username=musername.getText().toString().trim();
                 String password=mpassword.getText().toString().trim();
                 String repassword=mpassword1.getText().toString().trim();
-                if(!password.equals(repassword)){
-                    Toast.makeText(this,"两次输入密码不同",Toast.LENGTH_SHORT).show();
-                }
-             if (!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)&& password.equals(repassword)) {
+                ArrayList<User> data = mDBOpenHelper.getAllData();
+                Boolean a=false;
 
-                        //将用户名和密码加入到数据库中
+                for (int i = 0; i < data.size(); i++) {
+                    User user = data.get(i);
+                    if (username.equals(user.getName())) {
+                        a = true;
+                    }
+                }   if(!password.equals(repassword)){
+                Toast.makeText(this,"两次输入密码不同",Toast.LENGTH_SHORT).show();
+                      }else if(!TextUtils.isEmpty(username) && !TextUtils.isEmpty(password)&& password.equals(repassword)&&a==false){
                         mDBOpenHelper.add(username, password);
-                        Intent intent2 = new Intent(this, MainActivity.class);
+                        Intent intent2 = new Intent(this, MainActivity_denglu.class);
                         startActivity(intent2);
                         finish();
                         Toast.makeText(this,  "注册成功", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(this, "用户名已存在或未完善信息，注册失败", Toast.LENGTH_SHORT).show();
+                    }
 
-                }else {
-                    Toast.makeText(this, "未完善信息，注册失败", Toast.LENGTH_SHORT).show();
-                }
                 break;
+    }
         }
 
     }
-}
+
