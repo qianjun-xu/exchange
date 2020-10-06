@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -25,6 +28,7 @@ public class MainActivity_wodefabu extends AppCompatActivity implements View.OnC
     private Buy dyHelper;
     private Mydata myHelper;
     private BottomNavigationView navigation;
+    private ImageView lpicture;
     private List<persons> personsList=new ArrayList<persons>();
     private List<persons> personsList1=new ArrayList<persons>();
     @Override
@@ -72,8 +76,10 @@ public class MainActivity_wodefabu extends AppCompatActivity implements View.OnC
     String money = cursor.getString(cursor.getColumnIndex("money"));
     String photo = cursor.getString(cursor.getColumnIndex("photo"));
     String time = cursor.getString(cursor.getColumnIndex("time"));
+    byte[] image=cursor.getBlob(cursor.getColumnIndex("image"));
+    Bitmap bitmap=BitmapFactory.decodeByteArray(image,0,image.length);
     money = money + "￥";
-    persons a = new persons(name, money, photo, time,null);
+    persons a = new persons(name, money, photo, time,null,bitmap);
     personsList.add(a);
           }
             }while (cursor.moveToNext());
@@ -91,6 +97,9 @@ public class MainActivity_wodefabu extends AppCompatActivity implements View.OnC
         Cursor cursor1=my.query("Geren",null,null,null,null,null,null,null);
         Cursor cursor=db.query("Buy",null,null,null,null,null,null,null);
 
+
+
+
         if(cursor.moveToFirst()){
             do{
                 if(use.equals(cursor.getString(cursor.getColumnIndex("gg")))) {
@@ -102,7 +111,9 @@ public class MainActivity_wodefabu extends AppCompatActivity implements View.OnC
                             if(buyer.equals(cursor1.getString(cursor1.getColumnIndex("user")))) {
                                 String photo = cursor1.getString(cursor1.getColumnIndex("lianxi"));
                                 String dizhi = cursor1.getString(cursor1.getColumnIndex("dizhi"));
-                                persons a = new persons(buyer, shouname, num, photo,dizhi);
+                                byte[] image=cursor.getBlob(cursor.getColumnIndex("image"));
+                                Bitmap bitmap=BitmapFactory.decodeByteArray(image,0,image.length);
+                                persons a = new persons(buyer, shouname, num, photo,dizhi,bitmap);
                                 personsList1.add(a);
                             }
                         }while (cursor1.moveToNext());

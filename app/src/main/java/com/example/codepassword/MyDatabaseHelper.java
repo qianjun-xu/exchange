@@ -19,7 +19,8 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
             +"name text, "
             +"money text, "
             +"photo text, "
-            +"time text)";
+            +"time text, "+
+        "image BLOB)";
     private Context mContext;
     public MyDatabaseHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);

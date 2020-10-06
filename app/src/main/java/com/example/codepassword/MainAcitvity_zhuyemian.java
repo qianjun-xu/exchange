@@ -1,10 +1,14 @@
 package com.example.codepassword;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,13 +17,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +39,7 @@ public class MainAcitvity_zhuyemian extends AppCompatActivity implements View.On
     private Mydata myHelper;
     private BottomNavigationView navigation,navigation1;
     private List<persons> personsList=new ArrayList<persons>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -36,6 +47,7 @@ public class MainAcitvity_zhuyemian extends AppCompatActivity implements View.On
         initpersons();
         personsAdapter adapter=new personsAdapter(MainAcitvity_zhuyemian.this,R.layout.list,personsList);
         ListView listView=findViewById(R.id.listview);
+
         listView.setAdapter(adapter);
         navigation=findViewById(R.id.navigation);
         navigation1=findViewById(R.id.navigation1);
@@ -55,6 +67,7 @@ public class MainAcitvity_zhuyemian extends AppCompatActivity implements View.On
         Button fabu=navigation.findViewById(R.id.fabu);
         Button geren=navigation.findViewById(R.id.geren);
 
+
         Button goumai=navigation1.findViewById(R.id.goumai);
         Button fan=navigation1.findViewById(R.id.fanh);
         shouye.setOnClickListener(this);
@@ -73,8 +86,9 @@ public class MainAcitvity_zhuyemian extends AppCompatActivity implements View.On
                 String money=cursor.getString(cursor.getColumnIndex("money"));
                 String photo=cursor.getString(cursor.getColumnIndex("photo"));
                 String time=cursor.getString(cursor.getColumnIndex("time"));
-                money=money+"￥";
-                persons a=new persons(name,money,photo,time,null);
+                byte[] image=cursor.getBlob(cursor.getColumnIndex("image"));
+                Bitmap bitmap=BitmapFactory.decodeByteArray(image,0,image.length);
+                persons a=new persons(name,money,photo,time,null,bitmap);
                 personsList.add(a);
             }while (cursor.moveToNext());
         }
@@ -157,7 +171,6 @@ public class MainAcitvity_zhuyemian extends AppCompatActivity implements View.On
                 navigation1.setVisibility(View.GONE);
                 navigation.setVisibility(View.VISIBLE);
                 break;
-
         }
     }
 }

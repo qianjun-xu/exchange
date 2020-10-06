@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -28,11 +29,13 @@ public class personsAdapter extends ArrayAdapter<persons>
         TextView photo=view.findViewById(R.id.sp_name3);
         TextView time=view.findViewById(R.id.sp_name4);
         TextView num=view.findViewById(R.id.sp_name5);
+        ImageView image=view.findViewById(R.id.iv_image);
         name.setText(persons.getName());
         money.setText(persons.getMoney());
         photo.setText(persons.getPhoto());
         time.setText(persons.getTime());
         num.setText(persons.getNum());
+        image.setImageBitmap(persons.getBitmap());
         return view;
     }
 }
